@@ -1,0 +1,117 @@
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  color: black;
+}
+
+button {
+  font-size: 1.75em;
+  color: white;
+  padding: 15px 5px;
+  width: 100%;
+  background-color: #021876;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+fieldset {
+  border: none;
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 15px;
+  border-radius: 15px;
+  border: 1px solid #021876;
+  text-align: center;
+  color: #021876;
+  font-size: 1.5em;
+}
+
+label:hover, label:focus, input:checked + label, input:hover, input:focus {
+  background-color: #021876;
+  color: white;
+  transition: 0.2s all linear;
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-weight: 500px;
+}
+
+.heading {
+  font-size: 1.5em;
+}
+
+.question-number, .score {
+  font-size: 1.1em;
+  color: rgb(195, 195, 195);
+}
+
+legend {
+  font-size: 1.75em;
+}
+
+.centered {
+  text-align: center;
+}
+
+.american-flag-icon {
+  max-width: 280px;
+}
+
+.header {
+  margin-top: 10px;
+}
+
+.start-button {
+  margin-top: 25px;
+}
+
+button:hover {
+  background-color: rgb(143, 12, 28);
+  transition: 0.2s all linear;
+}
+
+.submit-button {
+  margin-top: 15px;
+}
+
+.q-a-form fieldset {
+  text-align: left;
+}
+
+.question-number {
+  float: left;
+}
+
+.score {
+  float: right;
+}
+
+form {
+  margin-top: 30px;
+}
+
+.default-text-size {
+  font-size: 1.5em;
+}
+
+.question {
+  font-size: 1.5em;
+}
+
+.uncle-sam {
+  max-height: 250px;
+}
+
+.capitol-img {
+  max-width: 100%;
+  border: 1px solid black;
+}
