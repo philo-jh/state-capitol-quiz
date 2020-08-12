@@ -1,7 +1,7 @@
 const STORE = {
   score : 0,
   questionNumber : 1,
-  questionPool : [], //an array of 50 indexes
+  questionPool : [],
   stateName : '',
   statecapitol : '',
   listOfCities : [],
@@ -27,6 +27,7 @@ function resetStats() {
   resetQuestionPool();
 }
 
+//puts numbers 1 -> 49 randomly in an array so questions are pulled randomly
 function resetQuestionPool() {
   for (let i = 0; i < 50; i++) {
     STORE.questionPool.push(i);
@@ -38,6 +39,7 @@ function renderQuiz() {
   generateQuestion(STORE.questionPool.pop());
   renderHeader();
   renderQuestion();
+  preRenderFeedback();
 }
 
 function generateQuestion(index) {
@@ -81,6 +83,7 @@ function renderHeader() {
 }
 
 function renderQuestion() {
+  $('.feedback').hide();
   $('main').html(`
     <form class="q-a-form">
       <fieldset class="js-fieldset" name="answer-choices">
@@ -97,6 +100,7 @@ function renderQuestion() {
     `);
   }
   $('.js-fieldset').append(answerChoices);
+  $('main').show();
 }
 
 function listenForSubmit() {
@@ -106,23 +110,29 @@ function listenForSubmit() {
     if(submittedAnswer === STORE.statecapitol) {
       STORE.score++;
     }
+    $('main').hide();
     renderHeader();
     renderFeedback(submittedAnswer);
   });
 }
 
-function renderFeedback(submittedAnswer) {
-  let correctAnswer = submittedAnswer === STORE.statecapitol;
-  $('main').html(`
-    <h1>${correctAnswer ? "Correct!" : "Wrong!"}</h1>
+function preRenderFeedback() {
+  $('.feedback').html(`
     <img class="capitol-img" src="./icons/${STORE.stateName}.jpg" alt="The state flag of ${STORE.stateName}">
     <p class="default-text-size"><em>${STORE.statecapitol}</em> is the state capitol of ${STORE.stateName}.</p>
     <button class="js-continue-button">Continue</button>
   `);
 }
 
+function renderFeedback(submittedAnswer) {
+  $('main').hide();
+  let correctAnswer = submittedAnswer === STORE.statecapitol;
+  $('.feedback').prepend(`<h1>${correctAnswer ? "Correct!" : "Wrong!"}</h1>`);
+  $('.feedback').show();
+}
+
 function listenForContinue() {
-  $('main').on('click', '.js-continue-button', function() {
+  $('.feedback').on('click', '.js-continue-button', function() {
     if(STORE.questionNumber === 50) {
       renderEndScreen();
     } else {
