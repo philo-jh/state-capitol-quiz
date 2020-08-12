@@ -53,7 +53,7 @@ function generateQuestion(index) {
   let currentCities = stateCapitols[index].cities;
 
   //add 4 random cities to the list of cities
-  while(STORE.listOfCities.length < 5) {
+  while(STORE.listOfCities.length <= 4) {
     let randomCity = currentCities[Math.floor(Math.random() * currentCities.length)];
     if (!STORE.listOfCities.find(city => city === randomCity)) {
       STORE.listOfCities.push(randomCity);
@@ -71,7 +71,6 @@ function shuffle(array) {
 }
 
 function renderHeader() {
-  //show header if previously hidden
   $('header').show();
   $('header').html(`
     <div class="header col-12">
@@ -113,7 +112,6 @@ function listenForSubmit() {
 }
 
 function renderFeedback(submittedAnswer) {
-  //correctAnswer will be a boolean
   let correctAnswer = submittedAnswer === STORE.statecapitol;
   $('main').html(`
     <h1>${correctAnswer ? "Correct" : "Wrong"}</h1>
