@@ -114,9 +114,9 @@ function listenForSubmit() {
 function renderFeedback(submittedAnswer) {
   let correctAnswer = submittedAnswer === STORE.statecapitol;
   $('main').html(`
-    <h1>${correctAnswer ? "Correct" : "Wrong"}</h1>
+    <h1>${correctAnswer ? "Correct!" : "Wrong!"}</h1>
     <img class="capitol-img" src="./icons/${STORE.stateName}.jpg" alt="The state flag of ${STORE.stateName}">
-    <p class="default-text-size">${STORE.statecapitol} is the state capitol of ${STORE.stateName}.</p>
+    <p class="default-text-size"><em>${STORE.statecapitol}</em> is the state capitol of ${STORE.stateName}.</p>
     <button class="js-continue-button">Continue</button>
   `);
 }

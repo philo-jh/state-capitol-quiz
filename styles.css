@@ -49,9 +49,24 @@ label:hover, label:focus, input:checked + label, input:hover, input:focus {
   font-size: 1.5em;
 }
 
+.header {
+  height: 45px;
+  padding-top: 10px;
+  border-radius: 0 0 20px 20px;
+  background-color: #021876;
+}
+
 .question-number, .score {
   font-size: 1.1em;
-  color: rgb(195, 195, 195);
+  color: white;
+}
+
+.question-number {
+  padding-left: 20px;
+}
+
+.score {
+  padding-right: 20px;
 }
 
 legend {
@@ -64,10 +79,6 @@ legend {
 
 .american-flag-icon {
   max-width: 280px;
-}
-
-.header {
-  margin-top: 10px;
 }
 
 .start-button {
