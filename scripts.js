@@ -145,6 +145,7 @@ function listenForContinue() {
 
 function renderEndScreen() {
   $('header').hide();
+  $('.feedback').hide();
   $('main').html(`
     <h1>You finished!</h1>
     <p class="default-text-size">You got ${STORE.score} out of 50 correct!</p>
@@ -152,6 +153,7 @@ function renderEndScreen() {
     <p class="default-text-size">Would you like to try again?</p>
     <button class="restart-button">Restart</button>
   `);
+  $('main').show();
 }
 
 function listenForRestart() {
