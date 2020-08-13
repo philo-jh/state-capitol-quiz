@@ -96,7 +96,7 @@ function renderQuestion() {
   let answerChoices = [];
   for(let i = 0; i < 5; i++) {
     answerChoices.push(`
-      <input type="radio" name="city-options" id="answer-city-${i} value="${STORE.listOfCities[i]}">
+      <input type="radio" name="city-options" id="answer-city-${i}" value="${STORE.listOfCities[i]}">
       <label for="answer-city-${i}">${STORE.listOfCities[i]}</label><br>
     `);
   }
