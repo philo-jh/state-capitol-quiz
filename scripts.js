@@ -9,6 +9,7 @@ const STORE = {
 
 function app() {
   listenForQuizStart();
+  listenForFocusBehaivor();
   listenForSubmit();
   listenForContinue();
   listenForRestart();
@@ -95,7 +96,7 @@ function renderQuestion() {
   let answerChoices = [];
   for(let i = 0; i < 5; i++) {
     answerChoices.push(`
-      <input type="radio" name="city-options" id="answer-city-${i}" value="${STORE.listOfCities[i]}">
+      <input type="radio" name="city-options" id="answer-city-${i} value="${STORE.listOfCities[i]}">
       <label for="answer-city-${i}">${STORE.listOfCities[i]}</label><br>
     `);
   }
@@ -157,6 +158,26 @@ function listenForRestart() {
   $('main').on('click', '.restart-button', function(event) {
     resetStats();
     renderQuiz();
+  });
+}
+
+function listenForFocusBehaivor() {
+  $('main').on('focus', 'input[name=city-options]', function() {
+    let radioId = $(this).attr('id');
+    $(`label[for="${radioId}"]`).css({
+      "background-color" : "#021876",
+      "color" : "white",
+      "transition" : "0.2s all linear"
+    });
+  });
+
+  $('main').on('focusout', 'input[name=city-options]', function () {
+    let radioId = $(this).attr('id');
+    $(`label[for="${radioId}"]`).css({
+      "background-color": "white",
+      "color": "#021876",
+      "transition": "0.1s all linear"
+    });
   });
 }
 

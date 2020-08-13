@@ -18,7 +18,7 @@ fieldset {
 }
 
 input {
-  display: none;
+  opacity: 0;
 }
 
 label {
@@ -36,7 +36,7 @@ label {
 label:hover, label:focus, input:checked + label, input:hover, input:focus {
   background-color: #021876;
   color: white;
-  transition: 0.2s all linear;
+  transition: 0.1s all linear;
 }
 
 .title {
