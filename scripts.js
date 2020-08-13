@@ -9,7 +9,6 @@ const STORE = {
 
 function app() {
   listenForQuizStart();
-  listenForFocusBehaivor();
   listenForSubmit();
   listenForContinue();
   listenForRestart();
@@ -160,26 +159,6 @@ function listenForRestart() {
   $('main').on('click', '.restart-button', function(event) {
     resetStats();
     renderQuiz();
-  });
-}
-
-function listenForFocusBehaivor() {
-  $('main').on('focus', 'input[name=city-options]', function() {
-    let radioId = $(this).attr('id');
-    $(`label[for="${radioId}"]`).css({
-      "background-color" : "#021876",
-      "color" : "white",
-      "transition" : "0.2s all linear"
-    });
-  });
-
-  $('main').on('focusout', 'input[name=city-options]', function () {
-    let radioId = $(this).attr('id');
-    $(`label[for="${radioId}"]`).css({
-      "background-color": "white",
-      "color": "#021876",
-      "transition": "0.1s all linear"
-    });
   });
 }
 
